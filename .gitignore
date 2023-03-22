@@ -1,0 +1,8 @@
+.DS_Store
+/coverage
+/.idea
+/.phpunit.result.cache
+/nbproject/private/
+/vendor
+composer.lock
+composer.phar

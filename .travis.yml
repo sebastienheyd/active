@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - 7.3
+  - 7.4
+  - 8.0
+  - 8.1
+  - 8.2
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.cache/composer
+
+before_script:
+  - phpenv config-rm xdebug.ini
+  - composer self-update
+  - COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --no-progress
+
+script:
+  - vendor/bin/phpcs
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master

@@ -1,0 +1,48 @@
+{
+  "name": "sebastienheyd/active",
+  "description": "Helper class for Laravel to get the active class based on the current route",
+  "keywords": ["laravel", "active", "routing"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hieu Le",
+      "email": "letrunghieu.cse09@gmail.com",
+      "homepage": "https://www.hieule.info"
+    },
+    {
+      "name": "Sébastien HEYD",
+      "email": "contact@sheyd.fr"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.5",
+    "illuminate/support": "^6.0|^7.0|^8.0|^9.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0|^8.0|^9.0",
+    "squizlabs/php_codesniffer": "^3.0",
+    "phpunit/php-code-coverage": "^7.0|^8.0|^9.2",
+    "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SebastienHeyd\\Active\\": "src/",
+      "SebastienHeyd\\ActiveTest\\": "tests/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SebastienHeyd\\Active\\ActiveServiceProvider"
+      ],
+      "aliases": {
+        "Active": "SebastienHeyd\\Active\\Facades\\Active"
+      }
+    }
+  }
+}
