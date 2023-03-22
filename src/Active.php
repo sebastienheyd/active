@@ -108,7 +108,7 @@ class Active
      */
     public function getClassIf($condition, $activeClass = '', $inactiveClass = '')
     {
-        return $condition ? empty($activeClass) ?  config('active.class', 'active') : $activeClass : $inactiveClass;
+        return $condition ? empty($activeClass) ? config('active.class', 'active') : $activeClass : $inactiveClass;
     }
 
     /**
