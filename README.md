@@ -2,7 +2,7 @@ Active for Laravel
 ======
 
 [![Travis](https://app.travis-ci.com/sebastienheyd/active.svg?branch=master)](https://app.travis-ci.com/github/sebastienheyd/active)
-[![Laravel](https://img.shields.io/badge/Laravel-6.x%20→%2010.x-green?logo=Laravel&style=flat-square)](https://laravel.com/)
+[![Laravel](https://img.shields.io/badge/Laravel-8.x%20→%2010.x-green?logo=Laravel&style=flat-square)](https://laravel.com/)
 [![License](https://poser.pugx.org/hieu-le/active/license.svg)](LICENSE)
 
 Helper class for Laravel to get the active class based on the current url.

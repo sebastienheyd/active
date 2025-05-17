@@ -54,171 +54,155 @@ class ActiveTest extends TestCase
     /**
      * @dataProvider provideGetActionTestData
      */
-    public function testGetCorrectAction(Request $request, $result)
+    public function testGetCorrectAction(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideGetActionTestData() as $testName => [$request, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::getAction());
-        $this->assertSame($result, app('active')->getAction());
-        $this->assertSame($result, current_action());
+            $this->assertSame($result, \Active::getAction(), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->getAction(), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, current_action(), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
      * @dataProvider provideGetMethodTestData
      */
-    public function testGetCorrectMethod(Request $request, $result)
+    public function testGetCorrectMethod(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideGetMethodTestData() as $testName => [$request, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::getMethod());
-        $this->assertSame($result, app('active')->getMethod());
-        $this->assertSame($result, current_method());
+            $this->assertSame($result, \Active::getMethod(), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->getMethod(), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, current_method(), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $result
-     *
      * @dataProvider provideGetControllerTestData
      */
-    public function testGetCorrectController(Request $request, $result)
+    public function testGetCorrectController(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideGetControllerTestData() as $testName => [$request, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::getController());
-        $this->assertSame($result, app('active')->getController());
-        $this->assertSame($result, current_controller());
+            $this->assertSame($result, \Active::getController(), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->getController(), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, current_controller(), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $actions
-     * @param         $result
-     *
      * @dataProvider provideCheckActionTestData
      */
-    public function testCheckCurrentAction(Request $request, $actions, $result)
+    public function testCheckCurrentAction(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckActionTestData() as $testName => [$request, $actions, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkAction($actions));
-        $this->assertSame($result, app('active')->checkAction($actions));
-        $this->assertSame($result, if_action($actions));
+            $this->assertSame($result, \Active::checkAction($actions), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkAction($actions), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_action($actions), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param
-     *        $controllers
-     * @param         $result
-     *
      * @dataProvider provideCheckControllerTestData
      */
-    public function testCheckCurrentController(Request $request, $controllers, $result)
+    public function testCheckCurrentController(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckControllerTestData() as $testName => [$request, $controllers, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkController($controllers));
-        $this->assertSame($result, app('active')->checkController($controllers));
-        $this->assertSame($result, if_controller($controllers));
+            $this->assertSame($result, \Active::checkController($controllers), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkController($controllers), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_controller($controllers), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $routes
-     * @param         $result
-     *
      * @dataProvider provideCheckRouteTestData
      */
-    public function testCheckCurrentRoute(Request $request, $routes, $result)
+    public function testCheckCurrentRoute(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckRouteTestData() as $testName => [$request, $routes, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkRoute($routes));
-        $this->assertSame($result, app('active')->checkRoute($routes));
-        $this->assertSame($result, if_route($routes));
+            $this->assertSame($result, \Active::checkRoute($routes), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkRoute($routes), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_route($routes), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $routes
-     * @param         $result
-     *
      * @dataProvider provideCheckRoutePatternTestData
      */
-    public function testCheckCurrentRoutePattern(Request $request, $routes, $result)
+    public function testCheckCurrentRoutePattern(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckRoutePatternTestData() as $testName => [$request, $routes, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkRoutePattern($routes));
-        $this->assertSame($result, app('active')->checkRoutePattern($routes));
-        $this->assertSame($result, if_route_pattern($routes));
+            $this->assertSame($result, \Active::checkRoutePattern($routes), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkRoutePattern($routes), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_route_pattern($routes), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $key
-     * @param         $value
-     * @param         $result
-     *
      * @dataProvider provideCheckRouteParameterTestData
      */
-    public function testCheckCurrentRouteParameter(Request $request, $key, $value, $result)
+    public function testCheckCurrentRouteParameter(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckRouteParameterTestData() as $testName => [$request, $key, $value, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkRouteParam($key, $value));
-        $this->assertSame($result, app('active')->checkRouteParam($key, $value));
-        $this->assertSame($result, if_route_param($key, $value));
+            $this->assertSame($result, \Active::checkRouteParam($key, $value), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkRouteParam($key, $value), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_route_param($key, $value), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param array|string $uri
-     * @param              $result
-     *
      * @dataProvider provideCheckUriTestData
      */
-    public function testCheckCurrentUri(Request $request, $uri, $result)
+    public function testCheckCurrentUri(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckUriTestData() as $testName => [$request, $uri, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkUri($uri));
-        $this->assertSame($result, app('active')->checkUri($uri));
-        $this->assertSame($result, if_uri($uri));
+            $this->assertSame($result, \Active::checkUri($uri), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkUri($uri), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_uri($uri), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $uri
-     * @param         $result
-     *
      * @dataProvider provideCheckUriPatternTestData
      */
-    public function testCheckCurrentUriPattern(Request $request, $uri, $result)
+    public function testCheckCurrentUriPattern(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckUriPatternTestData() as $testName => [$request, $uri, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkUriPattern($uri));
-        $this->assertSame($result, app('active')->checkUriPattern($uri));
-        $this->assertSame($result, if_uri_pattern($uri));
+            $this->assertSame($result, \Active::checkUriPattern($uri), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkUriPattern($uri), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_uri_pattern($uri), "Failed assertion for test: {$testName}");
+        }
     }
 
     /**
-     * @param Request $request
-     * @param         $key
-     * @param         $value
-     * @param         $result
-     *
      * @dataProvider provideCheckQueryTestData
      */
-    public function testCheckCurrentQuerystring(Request $request, $key, $value, $result)
+    public function testCheckCurrentQuerystring(): void
     {
-        app(HttpKernelContract::class)->handle($request);
+        foreach ($this->provideCheckQueryTestData() as $testName => [$request, $key, $value, $result]) {
+            app(HttpKernelContract::class)->handle($request);
 
-        $this->assertSame($result, \Active::checkQuery($key, $value));
-        $this->assertSame($result, app('active')->checkQuery($key, $value));
-        $this->assertSame($result, if_query($key, $value));
+            $this->assertSame($result, \Active::checkQuery($key, $value), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, app('active')->checkQuery($key, $value), "Failed assertion for test: {$testName}");
+            $this->assertSame($result, if_query($key, $value), "Failed assertion for test: {$testName}");
+        }
     }
 
     public function testAliasAndHelperFunctions()
