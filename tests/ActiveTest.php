@@ -214,7 +214,7 @@ class ActiveTest extends TestCase
         $this->assertSame('active-from-config', active_class(true));
     }
 
-    public function provideGetActionTestData()
+    public static function provideGetActionTestData()
     {
         return [
             'action is a controller method' => [
@@ -228,7 +228,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideGetMethodTestData()
+    public static function provideGetMethodTestData()
     {
         return [
             'method is a controller method'                          => [
@@ -246,7 +246,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideGetControllerTestData()
+    public static function provideGetControllerTestData()
     {
         return [
             'controller is a controller method' => [
@@ -260,7 +260,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckActionTestData()
+    public static function provideCheckActionTestData()
     {
         return [
             'match the first inputted actions'  => [
@@ -287,7 +287,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckControllerTestData()
+    public static function provideCheckControllerTestData()
     {
         return [
             'match the first inputted controllers'  => [
@@ -308,7 +308,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckRouteTestData()
+    public static function provideCheckRouteTestData()
     {
         return [
             'match the first inputted route names'  => [
@@ -334,7 +334,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckRouteParameterTestData()
+    public static function provideCheckRouteParameterTestData()
     {
         return [
             'key value is matched'                     => [
@@ -370,7 +370,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckRoutePatternTestData()
+    public static function provideCheckRoutePatternTestData()
     {
         return [
             'match the first inputted route patterns'  => [
@@ -396,7 +396,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckUriTestData()
+    public static function provideCheckUriTestData()
     {
         return [
             'match the first inputted uri'  => [
@@ -422,7 +422,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckQueryTestData()
+    public static function provideCheckQueryTestData()
     {
         return [
             'key value is matched'                                      => [
@@ -470,7 +470,7 @@ class ActiveTest extends TestCase
         ];
     }
 
-    public function provideCheckUriPatternTestData()
+    public static function provideCheckUriPatternTestData()
     {
         return [
             'match the first inputted uri patterns'  => [
