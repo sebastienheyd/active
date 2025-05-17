@@ -2,7 +2,9 @@ Active for Laravel
 ======
 
 [![tests](https://github.com/sebastienheyd/active/actions/workflows/tests.yml/badge.svg)](https://github.com/sebastienheyd/active/actions/workflows/tests.yml)
-[![Laravel](https://img.shields.io/badge/Laravel-8.x%20→%2012.x-green?logo=Laravel&style=flat-square)](https://laravel.com/)
+[![Laravel](https://img.shields.io/badge/Laravel-8.x%20→%2012.x-red?logo=Laravel&style=flat-square)](https://laravel.com/)
+[![Packagist](https://img.shields.io/packagist/v/sebastienheyd/active.svg?style=flat-square)](https://packagist.org/packages/sebastienheyd/active)
+[![Nb downloads](https://img.shields.io/packagist/dt/sebastienheyd/active.svg?style=flat-square)](https://packagist.org/packages/sebastienheyd/active)
 [![License](https://poser.pugx.org/hieu-le/active/license.svg)](LICENSE)
 
 Helper class for Laravel to get the active class based on the current url.
