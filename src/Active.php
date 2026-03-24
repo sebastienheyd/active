@@ -91,9 +91,7 @@ class Active
         if ($route) {
             $this->action = $route->getActionName();
 
-            $actionSegments = Str::parseCallback($this->action, null);
-            $this->controller = head($actionSegments);
-            $this->method = last($actionSegments);
+            [$this->controller, $this->method] = Str::parseCallback($this->action, null);
         }
     }
 
@@ -124,13 +122,7 @@ class Active
             return false;
         }
 
-        foreach ((array) $uris as $uri) {
-            if ($this->uri == $uri) {
-                return true;
-            }
-        }
-
-        return false;
+        return in_array($this->uri, (array) $uris);
     }
 
     /**
@@ -146,13 +138,7 @@ class Active
             return false;
         }
 
-        foreach ((array) $patterns as $p) {
-            if (Str::is($p, $this->uri)) {
-                return true;
-            }
-        }
-
-        return false;
+        return Str::is((array) $patterns, $this->uri);
     }
 
     /**
@@ -212,13 +198,7 @@ class Active
             return in_array(null, $patterns);
         }
 
-        foreach ((array) $patterns as $p) {
-            if (Str::is($p, $routeName)) {
-                return true;
-            }
-        }
-
-        return false;
+        return Str::is((array) $patterns, $routeName);
     }
 
     /**
@@ -239,7 +219,7 @@ class Active
 
         // If the parameter value is an instance of Model class, we compare $value with the value of
         // its primary key.
-        if (is_a($paramValue, Model::class)) {
+        if ($paramValue instanceof Model) {
             return $paramValue->{$paramValue->getKeyName()} == $value;
         }
 
